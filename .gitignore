@@ -1,0 +1,4 @@
+*.gabrielle-comm-design.fr_private_key-2.key
+certificat_complet.crt
+db.sqlite3
+venv/

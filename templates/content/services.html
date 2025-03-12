@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Services - Gabrielle
+{% endblock %}
+
+{% block content %}
+<svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <clipPath id="div-wave-down-service" clipPathUnits="objectBoundingBox">
+        <path transform="scale(0.00278, 0.00133)"
+        d="M360,0H0v720s36,27,71.8,27.2c36,.3,35.9-34,72.4-34.4,37.4-.4,38.2,22,71.9,34,49.2,17.6,34.3-33,71.5-33.1,35.4,0,72.4,6.3,72.4,6.3V0h0Z"/>      </clipPath>
+    </defs>
+  </svg>
+<svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <clipPath id="div-wave-up-service" clipPathUnits="objectBoundingBox">
+        <path transform="scale(0.00278, 0.00133)"
+        d="M360,749.6H0V29.6S36,2.6,71.8,2.4c35.8-.3,35.8,26.9,72.3,27.2s38.3-14.8,72-26.8c49.1-17.6,34.9,35.8,72.2,35.9,35.4,0,71.7-9,71.7-9v720h0Z"/>      </clipPath>
+    </defs>
+  </svg>
+  
+<section id="services">
+    <div class="service-container">
+        {% for service in services_list %}
+            <div class="{% cycle 'service-item-box a' 'service-item-box b' %}">
+                <h2>{{ service.nom }}</h2>
+                <h3>{{ service.prix }} €</h3>
+                <p>{{ service.description|safe }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <p>Pour toute demande d’éléments indépendants (flyers, posts sur les réseaux sociaux, logos, etc.), contactez-moi pour discuter de votre projet et établir un devis.</p>
+    <a href="{% url 'contact' %}"><div class="service-contact-link">Travaillons ensemble !</div></a>
+</section>
+
+
+{% endblock %}

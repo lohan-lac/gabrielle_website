@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Titre du Site{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'images/logo_ico.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/logo_ico.png' %}">
+
+    {% if theme %}
+    <style>
+        :root {
+            --background-color: {{ theme.background_color }};
+            --content-color: {{ theme.content_color }};
+            --accent-color: {{ theme.accent_color }};
+            --contrast-color: {{ theme.contrast_color }};
+        }
+    </style>
+    {% endif %}
+</head>
+<body>
+    {% include 'menu.html' %}
+    
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+    
+    {% include 'footer.html' %}
+    
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

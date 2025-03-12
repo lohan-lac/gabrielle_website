@@ -1,0 +1,50 @@
+{% load static %}
+<svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <clipPath id="div-wave-down" clipPathUnits="objectBoundingBox">
+        <path transform="scale(0.001, 0.003468)" 
+              d="M1000,288.39c-63.9-1.95-51.88-72.73-121.17-72.44-72.45.3-127.76,72.08-198.83,72.44-71.96.36-107.65-72.37-180-72.08-72.12.29-108.78,72.43-180,72.08s-127.67-72.73-199.51-72.44c-62.79.25-48.42,72.08-120.49,72.44V0h1000v288.39Z"/>
+      </clipPath>
+    </defs>
+</svg>
+
+<header class="menu">
+    <div class="menu-logo">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/Logo_blanc.png' %}" alt="Logo">
+        </a>
+    </div>
+    <nav class="menu-wheel-container">
+        <ul class="menu-wheel">
+            <li class="menu-wheel-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}" data-index="0">
+                <a href="{% url 'home' %}">Accueil</a>
+            </li>
+            <li class="menu-wheel-item {% if request.resolver_match.url_name == 'portfolio' %}active{% endif %}" data-index="1">
+                <a href="{% url 'portfolio' %}">Portfolio</a>
+            </li>
+            <li class="menu-wheel-item {% if request.resolver_match.url_name == 'realisations' %}active{% endif %}" data-index="2">
+                <a href="{% url 'realisations' %}">Mon travail</a>
+            </li>
+            <li class="menu-wheel-item {% if request.resolver_match.url_name == 'services' %}active{% endif %}" data-index="3">
+                <a href="{% url 'services' %}">Services</a>
+            </li>
+            <li class="menu-wheel-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" data-index="4">
+                <a href="{% url 'contact' %}">Contact</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="burger-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+<div class="mobile-menu">
+    <ul>
+      <li><a href="{% url 'home' %}">Accueil</a></li>
+      <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+      <li><a href="{% url 'realisations' %}">Mon travail</a></li>
+      <li><a href="{% url 'services' %}">Services</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+  </div>
